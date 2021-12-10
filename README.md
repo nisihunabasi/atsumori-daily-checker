@@ -1,4 +1,6 @@
-# atsumori-todo
+# atsumori-daily-checker
+
+あつ森の毎日やることの進行具合を確認するTODOリストです。
 
 ## Project setup
 ```
@@ -14,11 +16,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
