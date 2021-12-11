@@ -9,128 +9,84 @@
     </div>
     <div class="panel">
       <h2 class="panel-header">役場</h2>
-      <ul class="mt-3">
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;ラジオ体操
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;マイレージログイン
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;たぬきショッピング日替りCheck
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;リサイクルBOX
-          </label>
-        </li>
+      <ul>
+        <li><check-box label="ラジオ体操"/></li>
+        <li><check-box label="マイレージログイン"/></li>
+        <li><check-box label="たぬきショッピング日替りCheck"/></li>
+        <li><check-box label="リサイクルBOX"/></li>
       </ul>
     </div>
     <div class="panel-naked">
       <ul>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;海岸のボトルレシピ
-          </label>
-        </li>
+        <li><check-box label="海岸のボトルレシピ"/></li>
         <li>
           <span>住民レシピ</span>&nbsp;
-          <label>
-            <input type="checkbox">
-            10日
-          </label>
-          &nbsp;
-          <label>
-            <input type="checkbox">
-            20日
-          </label>
-          &nbsp;
-          <label>
-            <input type="checkbox">
-            30日
-          </label>
+          <check-box label="1st" slim="true"/>&nbsp;
+          <check-box label="2nd" slim="true"/>&nbsp;
+          <check-box label="3rd" slim="true"/>
         </li>
       </ul>
     </div>
-    <div class="flex frex-row justify-around">
+    <div class="flex frex-row justify-around space-x-1">
       <div class="panel">
         <h2 class="panel-header">博物館</h2>
-        <ul class="mt-3">
-          <li>
-            <label>
-              <input type="checkbox">
-              &nbsp;ハトの巣
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox">
-              &nbsp;化石の鑑定
-            </label>
-          </li>
+        <ul>
+          <li><check-box label="ハトの巣"/></li>
+          <li><check-box label="化石の鑑定"/></li>
         </ul>
       </div>
       <div class="panel">
         <h2 class="panel-header">たぬき商店</h2>
-        <ul class="mt-3">
-          <li>
-            <label>
-              <input type="checkbox">
-              &nbsp;カブ価チェック
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox">
-              &nbsp;商品チェック
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox">
-              &nbsp;カベ・床
-            </label>
-          </li>
+        <ul>
+          <li><check-box label="カブ価チェック"/></li>
+          <li><check-box label="商品チェック"/></li>
+          <li><check-box label="カベ・床"/></li>
         </ul>
       </div>
     </div>
     <div class="panel-naked">
       <ul>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;仕立て屋チェック
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox">
-            &nbsp;かっぺいツアー
-          </label>
-        </li>
+        <li><check-box label="仕立て屋チェック"/></li>
+        <li><check-box label="かっぺいツアー"/></li>
         <li>
           <span>訪問者</span>&nbsp;
-          <label>
-            <input type="checkbox">
-            昼
-          </label>
+          <check-box label="昼"/>
           &nbsp;
-          <label>
-            <input type="checkbox">
-            夜
-          </label>
+          <check-box label="夜"/>
         </li>
+      </ul>
+    </div>
+    <div class="flex flex-row justify-around space-x-1">
+      <Panel header="月曜">
+        <ul><li><check-box label="パニー島" slim="true"/></li></ul>
+      </Panel>
+      <Panel header="土曜">
+        <ul>
+          <li><check-box label="とたけけ" slim="true"/></li>
+        </ul>
+      </Panel>
+      <Panel header="日曜">
+        <ul>
+          <li><check-box label="ウリ" slim="true"/></li>
+          <li><check-box label="フェス" slim="true"/></li>
+        </ul>
+      </Panel>
+    </div>
+    <Panel header="ハッピーホームデザイナー">
+      <ul>
+          <li><check-box label="海岸のボトルレシピ"/></li>
+          <li><check-box label="レストランでレシピ"/></li>
+          <li><check-box label="ポキ家具日替りチェック"/></li>
+          <li><check-box label="お取り寄せ(最大5回)"/></li>
+        </ul>
+    </Panel>
+    <div class="panel-naked">
+      <ul>
+          <li><check-box label="ゆきだるま(冬季限定)"/></li>
+          <li><check-box label="木材採取"/></li>
+          <li><check-box label="石コツコツ"/></li>
+          <li><check-box label="水やり"/></li>
+          <li><check-box label="ラコスケにホタテ"/></li>
       </ul>
     </div>
   </div>
@@ -139,11 +95,14 @@
 </template>
 
 <script>
+import CheckBox from "./components/CheckBox.vue"
+import Panel from "./components/Panel.vue"
 
 export default {
   name: 'App',
   components: {
-    
+    CheckBox,
+    Panel
   },
   setup() {
     //TODO 達成カウント
@@ -175,16 +134,19 @@ export default {
   @apply bg-gray-400;
 }
 .panel {
-  @apply border border-gray-400 rounded p-4;
-  margin: 0.8rem 0 0.5rem 0;
+  @apply border border-gray-400 rounded p-2 flex-1;
+  margin: 0.8rem 0 0.25rem 0;
 }
 .panel-header {
   @apply bg-white px-4 rounded;
   width: fit-content;
-  margin-top: -26px;
+  margin-top: -18px;
+}
+.panel ul {
+  @apply mt-2;
 }
 .panel-naked {
-  @apply p-4 border border-transparent;
+  @apply px-2 py-1 border border-transparent;
 }
 .inbox {
   background-color: #e7f3d9;
