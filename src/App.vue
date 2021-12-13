@@ -10,20 +10,20 @@
     <div class="panel">
       <h2 class="panel-header">役場</h2>
       <ul>
-        <li><check-box label="ラジオ体操"/></li>
-        <li><check-box label="マイレージログイン"/></li>
-        <li><check-box label="たぬきショッピング日替りCheck"/></li>
-        <li><check-box label="リサイクルBOX"/></li>
+        <li><check-box label="ラジオ体操" v-model="checkedTasks"/></li>
+        <li><check-box label="マイレージログイン" v-model="checkedTasks"/></li>
+        <li><check-box label="たぬきショッピング日替りCheck" v-model="checkedTasks"/></li>
+        <li><check-box label="リサイクルBOX" v-model="checkedTasks"/></li>
       </ul>
     </div>
     <div class="panel-naked">
       <ul>
-        <li><check-box label="海岸のボトルレシピ"/></li>
+        <li><check-box label="海岸のボトルレシピ" v-model="checkedTasks"/></li>
         <li>
           <span>住民レシピ</span>&nbsp;
-          <check-box label="1st" slim="true"/>&nbsp;
-          <check-box label="2nd" slim="true"/>&nbsp;
-          <check-box label="3rd" slim="true"/>
+          <check-box label="1st" slim v-model="checkedTasks"/>&nbsp;
+          <check-box label="2nd" slim v-model="checkedTasks"/>&nbsp;
+          <check-box label="3rd" slim v-model="checkedTasks"/>
         </li>
       </ul>
     </div>
@@ -31,62 +31,62 @@
       <div class="panel">
         <h2 class="panel-header">博物館</h2>
         <ul>
-          <li><check-box label="ハトの巣"/></li>
-          <li><check-box label="化石の鑑定"/></li>
+          <li><check-box label="ハトの巣" v-model="checkedTasks"/></li>
+          <li><check-box label="化石の鑑定" v-model="checkedTasks"/></li>
         </ul>
       </div>
       <div class="panel">
         <h2 class="panel-header">たぬき商店</h2>
         <ul>
-          <li><check-box label="カブ価チェック"/></li>
-          <li><check-box label="商品チェック"/></li>
-          <li><check-box label="カベ・床"/></li>
+          <li><check-box label="カブ価チェック" v-model="checkedTasks"/></li>
+          <li><check-box label="商品チェック" v-model="checkedTasks"/></li>
+          <li><check-box label="カベ・床" v-model="checkedTasks"/></li>
         </ul>
       </div>
     </div>
     <div class="panel-naked">
       <ul>
-        <li><check-box label="仕立て屋チェック"/></li>
-        <li><check-box label="かっぺいツアー"/></li>
+        <li><check-box label="仕立て屋チェック" v-model="checkedTasks"/></li>
+        <li><check-box label="かっぺいツアー" v-model="checkedTasks"/></li>
         <li>
           <span>訪問者</span>&nbsp;
-          <check-box label="昼"/>
+          <check-box label="昼" v-model="checkedTasks"/>
           &nbsp;
-          <check-box label="夜"/>
+          <check-box label="夜" v-model="checkedTasks"/>
         </li>
       </ul>
     </div>
     <div class="flex flex-row justify-around space-x-1">
       <Panel header="月曜">
-        <ul><li><check-box label="パニー島" slim="true"/></li></ul>
+        <ul><li><check-box label="パニー島" slim v-model="checkedTasks"/></li></ul>
       </Panel>
       <Panel header="土曜">
         <ul>
-          <li><check-box label="とたけけ" slim="true"/></li>
+          <li><check-box label="とたけけ" slim v-model="checkedTasks"/></li>
         </ul>
       </Panel>
       <Panel header="日曜">
         <ul>
-          <li><check-box label="ウリ" slim="true"/></li>
-          <li><check-box label="フェス" slim="true"/></li>
+          <li><check-box label="ウリ" slim v-model="checkedTasks"/></li>
+          <li><check-box label="フェス" slim v-model="checkedTasks"/></li>
         </ul>
       </Panel>
     </div>
     <Panel header="ハッピーホームデザイナー">
       <ul>
-          <li><check-box label="海岸のボトルレシピ"/></li>
-          <li><check-box label="レストランでレシピ"/></li>
-          <li><check-box label="ポキ家具日替りチェック"/></li>
-          <li><check-box label="お取り寄せ(最大5回)"/></li>
+          <li><check-box label="海岸のボトルレシピ" v-model="checkedTasks"/></li>
+          <li><check-box label="レストランでレシピ" v-model="checkedTasks"/></li>
+          <li><check-box label="ポキ家具日替りチェック" v-model="checkedTasks"/></li>
+          <li><check-box label="お取り寄せ(最大5回)" v-model="checkedTasks"/></li>
         </ul>
     </Panel>
     <div class="panel-naked">
       <ul>
-          <li><check-box label="ゆきだるま(冬季限定)"/></li>
-          <li><check-box label="木材採取"/></li>
-          <li><check-box label="石コツコツ"/></li>
-          <li><check-box label="水やり"/></li>
-          <li><check-box label="ラコスケにホタテ"/></li>
+          <li><check-box label="ゆきだるま(冬季限定)" v-model="checkedTasks"/></li>
+          <li><check-box label="木材採取" v-model="checkedTasks"/></li>
+          <li><check-box label="石コツコツ" v-model="checkedTasks"/></li>
+          <li><check-box label="水やり" v-model="checkedTasks"/></li>
+          <li><check-box label="ラコスケにホタテ" v-model="checkedTasks"/></li>
       </ul>
     </div>
   </div>
@@ -97,6 +97,8 @@
 <script>
 import CheckBox from "./components/CheckBox.vue"
 import Panel from "./components/Panel.vue"
+import {computed, reactive} from "vue"
+
 
 export default {
   name: 'App',
@@ -105,13 +107,45 @@ export default {
     Panel
   },
   setup() {
+    //localStorageから最後の状態を取得
+    let initialTasks;
+    let st = localStorage;
+    const ST_KEY = "checked_tasks";
+    try {
+      initialTasks = st.getItem(ST_KEY);
+      if (initialTasks == null) {
+        initialTasks = [];
+      } else {
+        initialTasks = JSON.parse(initialTasks);
+      }
+    } catch {
+      //例外を吐いたらまっさらな状態とみなして進める。
+      initialTasks = [];
+    }
+
+    //ただの配列でもいいかと思って実装したら、チェックイベントが親に伝播した時に望ましい値が保存されなくなってしまった。
+    //reactiveは値が変わった瞬間に当オブジェクトを利用しているコンポーネントへ値を瞬時に反映させているため、
+    //この実装でないと、現在のタスク一覧がうまくリンクしない。
+    let checkedTasksInner = reactive({value: initialTasks});
+
     //TODO 達成カウント
     const onClickResetBtn = () => {
       document.querySelectorAll("input[type='checkbox']").forEach((val) => {
         val.checked = false;
       });
+      st.setItem(ST_KEY, JSON.stringify([]));
     };
+
+    let checkedTasks = computed({
+      get: () => checkedTasksInner.value,
+      set: (callBackArray) => {
+        checkedTasksInner.value = callBackArray;
+        st.setItem(ST_KEY, JSON.stringify(callBackArray));
+      }
+    });
+
     return {
+      checkedTasks,
       onClickResetBtn
     };
   }
